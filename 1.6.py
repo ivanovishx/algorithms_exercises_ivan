@@ -31,7 +31,7 @@ def compress(str1):
 	else:
 		return str2
 
-def compress_v2(str1):
+def compress_v2(str1): #O(N) where N is the length of str1
 	str2 = ""
 	previus_char = ""
 	count = 0
