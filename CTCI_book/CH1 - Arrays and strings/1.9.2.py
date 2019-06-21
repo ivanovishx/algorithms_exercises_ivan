@@ -2,7 +2,7 @@
 # is a substring of another. Given two strings, S1 and S2, write code to check if S2 is a rotation of S1 
 # using only one call to isSubstring (e.g., "waterbottle" is a rotation of u "erbottlewat").
 
-
+#Runtime: O(N) because .find in isSubstring may last this time to find 
 import unittest
 
 def isSubstring(str1, sub):
