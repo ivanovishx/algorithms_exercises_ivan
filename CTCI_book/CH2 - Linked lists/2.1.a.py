@@ -23,10 +23,8 @@ def printList(head):
 		print (head.data)
 		printList(head.next)
 
-# def createLinkedlist(head, list1):
-	
+# def createLinkedlist(head, list1):	
 # 	node = head
-
 # 	print(head.data)
 # 	print(node.data)
 # 	for num in list1:
@@ -41,12 +39,7 @@ class Node():
     self.data = data
     self.next = next
 
-
-    # def print_node
-
 #Start
-
-
 # Data 1,2,3,3,5,6,4,2,3,1
 # After 1,2,3,5,6
 linked_list = Node(1, Node(2,Node(3,Node(5,Node(6,Node(4,Node(4,Node(3,Node(4,None)))))))))
