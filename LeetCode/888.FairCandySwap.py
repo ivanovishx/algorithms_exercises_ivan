@@ -39,7 +39,8 @@
 # It is guaranteed there exists an answer.
 
 
-def candySwap(kid1, kid2):
+ #Complex on time too SLOW
+def candySwap(kid1, kid2): 
 	candy1 = sum(kid1)
 	candy2 = sum(kid2)	
 	average = (candy1 + candy2) / 2
@@ -52,6 +53,7 @@ def candySwap(kid1, kid2):
 			 return [item, target]
 
 
+# faster than 29.27% of Python online submissions for Fair Candy Swap.
 def candySwap2(A, B):
 	flagABig = False
 	i = 0
