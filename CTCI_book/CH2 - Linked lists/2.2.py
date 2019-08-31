@@ -21,6 +21,7 @@ def returnSlideEnd(head, k):
 	return head
 
 
+
 #Solution link  (this returns kth from last to k)
 def returnSlideEnd2(head, k):
 	lead, follow = head, head
