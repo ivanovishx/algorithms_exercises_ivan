@@ -1,14 +1,77 @@
 353 design SnakeGame 
 // https://leetcode.com/problems/design-snake-game/
 
+// solved similar and good https://leetcode.com/problems/design-snake-game/discuss/354586/C%2B%2B-solution-beats-100
 
 class SnakeGame {
 public:
-    /** Initialize your data structure here.
-        @param width - screen width
-        @param height - screen height 
-        @param food - A list of food positions
-        E.g food = [[1,1], [1,0]] means the first food is positioned at [1,1], the second is at [1,0]. */
+    
+    SnakeGame(int width, int height, vector<vector<int>>& food) {
+        score = 0;
+        body.push_back(make_pair(0,0));
+        food_ = &food;
+        head = make_pair(body.back().first, body.back().second);
+        width_ = width;
+        height_ = height;
+    }
+    
+  
+    int move(string direction) {
+        if (direction == "U")       head.second -= 1;   
+        else if (direction == "D")  head.second += 1;   
+        else if (direction == "L")  head.first -= 1;   
+        else if (direction == "R")  head.first += 1;             
+                
+        if(food_[0].size() > 0 && food_[0].size() > score){
+            if  (head == make_pair(food_[0][score][1], food_[0][score][0])) {
+                score++; 
+                moveBody(1);
+            }
+            else moveBody(0);
+        }
+        else moveBody(0);
+        if (hitBody() || head.first < 0 || head.second < 0 || head.first >= width_  || head.second >= height_  ) 
+            return -1; //GAME OVER
+        
+        return score;
+    }
+    
+
+private:
+    int score;
+    vector <pair<int,int>> body;
+    pair <int,int> head;
+    std::vector<std::vector<int>>* food_;
+    int width_, height_;
+
+    void moveBody(int add){
+         body.push_back(head);
+        if (add == 0) body.erase(body.begin());   
+    }
+    
+    int hitBody(){
+            for (int i = 0; i < body.size() - 1; i++ ) 
+                if (make_pair(head.first, head.second) == body[i] ) return 1;
+        return 0;
+    }
+    
+   
+    
+};
+
+
+
+
+
+/*
+//With comments
+class SnakeGame {
+public:
+        // Initialize your data structure here.
+        // @param width - screen width
+        // @param height - screen height 
+        // @param food - A list of food positions
+        // E.g food = [[1,1], [1,0]] means the first food is positioned at [1,1], the second is at [1,0]. 
     SnakeGame(int width, int height, vector<vector<int>>& food) {
         score = 0;
         food_index = 0;
@@ -37,10 +100,10 @@ public:
         
     }
     
-    /** Moves the snake.
-        @param direction - 'U' = Up, 'L' = Left, 'R' = Right, 'D' = Down 
-        @return The game's score after the move. Return -1 if game over. 
-        Game over when snake crosses the screen boundary or bites its body. */
+     // Moves the snake.
+        // @param direction - 'U' = Up, 'L' = Left, 'R' = Right, 'D' = Down 
+        // @return The game's score after the move. Return -1 if game over. 
+        // Game over when snake crosses the screen boundary or bites its body. 
     int move(string direction) {
         
         if (direction == "U")       head.second -= 1;   
