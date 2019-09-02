@@ -25,6 +25,12 @@ void ClearScreen(){
 int main(int argc, char const *argv[])
 {
 
+	// TODO:  
+	// -graphic interface in python or JS http://patorjk.com/games/snake/
+	// -Runn it on ROS
+	// -Run it on 3D
+	// -Run it on OCULUS API
+
 	SnakeGame* game1 = new SnakeGame(35, 35);
 
 	// std::vector<std::vector<int> > food = {{0,1},{0,2},{1,2},{2,2},{2,1},{2,0},{1,0}};
